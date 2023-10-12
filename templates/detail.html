@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}{{ question.title }}{% endblock %}
+{% block content %}
+  <h1>{{ question.title }}</h1>
+  <p class="date">
+    Published {{ question.create }} by {{ question.user }}
+  </p>
+  {{ question.description|linebreaks }}
+  {% with answers.count as total_answers%}
+      <h2>
+      {{ total_answers }} answer{{ total_answers|pluralize }}
+      </h2>
+  {% endwith %}
+  {% for answer in answers %}
+      <div class="answer">
+        <p class="info">
+            Answer{{ forloop.counter }}by{{ answer.name }}
+            {{ answer.create }}
+        </p>
+      {{ answer.body }}
+      </div>
+      {% empty %}
+      <p>There is no answers yet</p>
+  {% endfor %}
+
+  {% if new_answer %}
+    <p>Your Answer has been added</p>
+  {% else %}
+      <p>Add New Answer</p>
+      <form method="post">
+        {{ answer_form.as_p }}
+          {% csrf_token %}
+          <input type="submit" value="add answer">
+      </form>
+  {% endif %}
+
+{% endblock %}

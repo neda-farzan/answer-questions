@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}search{% endblock %}
+{% block content %}
+    {% if query %}
+        <h1>Questions contains "{{ query }}"</h1>
+        <h3>
+        {% with results.count as totalresult %}
+            Found{{ totalresult }}Result{{ totalresult|pluralize }}
+        {% endwith %}
+        </h3>
+        {% for question in results %}
+           <h4>
+               <a href="{{ question.get_absolute_url }}">{{ question.title }}</a>
+           </h4>
+            {% empty %}
+            <h4>There is no Results </h4>
+        {% endfor %}
+    {% else %}
+        <h1>Search Your question</h1>
+        <form method="get">
+          {{ form.as_p }}
+          {# {% csrf_token %}#}
+        <input type="submit" value="search">
+        </form>
+    {% endif %}
+{% endblock %}

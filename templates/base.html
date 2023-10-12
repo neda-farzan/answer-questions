@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link href="{% static "css/blog.css" %}" rel="stylesheet">
+</head>
+<body>
+  <div class="navbar">
+    <ul>
+        <li><a class="active" href="questions"> questions</a></li>
+        <li><a href="#contact us">contact us</a></li>
+         <li><a href="ask">add new question</a></li>
+    </ul>
+  </div>
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <div id="sidebar">
+    <h2>Find Your Answers</h2>
+    <p>Answer and Ask Questions Here </p>
+    <a href="ask">
+        Add Your Question
+    </a>
+  </div>
+</body>
+</html>

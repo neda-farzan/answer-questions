@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Questions{% endblock %}
+{% block content %}
+  <h1>Answer and Ask Questions</h1>
+  {% for question in questions %}
+    <h2>
+      <a href="{{ question.get_absolute_url }}">
+      {# <a href="{{ question.get_absolute_url }}"> #}
+        {{ question.title }}
+      </a>
+    </h2>
+    <p class="date">
+      Published {{ question.create }} by {{ question.user }}
+    </p>
+    {{ question.description }}
+  {% endfor %}
+{% endblock %}

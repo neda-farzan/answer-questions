@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Ask_New_Question{% endblock %}
+{% block content %}
+<h2> New Question</h2>
+    {% if new %}
+        <P>Your Question Has been Added</P>
+        {% else %}
+        <form method="post">
+          {{ empty_form.as_p }}
+          {% csrf_token %}
+          <input type="submit" value="submit new question">
+        </form>
+    {% endif %}
+
+{% endblock %}

@@ -1,11 +1,39 @@
-body { 
+body {
+    background: #8351a8;
     margin:0;
     padding:0;
     font-family:helvetica, sans-serif; 
 }
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.nav ul li {
+  float: left;
+}
+
+.nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav li a:hover:not(.active) {
+  background-color: #5e4490;
+}
+
+.nav .active {
+  background-color: #698db6;
+}
 
 a { 
-    color:#00abff;
+    color: #241f3a;
     text-decoration:none; 
 }
 
@@ -93,36 +121,6 @@ input[type=submit] {
     font-size:12px;
     color:#666;
 }
-
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-.navbar ul li {
-  float: left;
-  display: inline;
-}
-
-.navbar ul li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.navbar ul li a:hover:not(.active) {
-  background-color:#563d69;
-}
-
-.active {
-  background-color: #4d7b93;
-}
-
 .content{
     display: flex;
     align-content: center;
